@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/problem_base'
 module ProjectEuler
   class Problem001 < ProjectEuler::ProblemBase
     def answer
-      17
+      (1..999).to_a.select{|i| i % 3 == 0 || i % 5 == 0 }.inject(:+)
     end
   end
 end

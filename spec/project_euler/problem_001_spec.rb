@@ -7,6 +7,6 @@ describe ProjectEuler::Problem001 do
   end
 
   it "should work" do
-    @instance.answer.should eq(17)
+    @instance.answer.should eq(233168)
   end
 end
