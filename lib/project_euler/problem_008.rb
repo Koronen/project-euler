@@ -31,7 +31,7 @@ module ProjectEuler
       0.upto(N.size - 5) do |pos|
         numbers = N[pos..(pos+4)].split(//)
         product = numbers.map(&:to_i).inject(&:*)
-        answer = answer if product > result
+        answer = product if product > answer
       end
 
       answer
