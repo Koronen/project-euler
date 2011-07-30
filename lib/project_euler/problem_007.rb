@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
 
 require File.dirname(__FILE__) + '/problem_base'
+require 'prime'
 
 module ProjectEuler
   class Problem007 < ProjectEuler::ProblemBase
     def answer
-      0
+      Prime.each_with_index.find{|_, i| i == 10000 }.first
     end
   end
 end
