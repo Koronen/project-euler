@@ -6,7 +6,7 @@ describe ProjectEuler::Problem001 do
     @instance = ProjectEuler::Problem001.new
   end
 
-  it "should work" do
+  it "gives the correct answer" do
     @instance.answer.should eq(233168)
   end
 end
