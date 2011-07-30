@@ -2,9 +2,22 @@
 
 These are my solutions to the problems listed on [Project Euler](http://projecteuler.net/).
 
+## Installation
+
+    git clone git://github.com/Koronen/project-euler.git
+    cd project-euler
+    bundle install
+
 ## Usage
 
-TODO
+To print the answer to a single problem:
+    ruby lib/project_euler/problem_XXX.rb
+
+To run all specs:
+    rake
+
+To run specs for a single problem:
+    rspec spec/project_euler/problem_XXX.rb
 
 ## License
 
