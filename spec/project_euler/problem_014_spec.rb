@@ -13,6 +13,7 @@ describe ProjectEuler::Problem014 do
   end
 
   it "gives the correct answer" do
+    pending("skipped to speed up test suite (takes ~1m on a Core 2 Duo @2GHz)")
     @instance.answer.should eq(837799)
   end
 end
