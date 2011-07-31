@@ -5,17 +5,8 @@ require 'prime'
 
 module ProjectEuler
   class Problem021 < ProjectEuler::ProblemBase
-    def prime_factors(n)
-      n.prime_division.map{|f, c| 1.upto(c).map{ f } }.flatten
-    end
-
-    def proper_divisors(n)
-      pf = prime_factors(n) << 1
-      1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*)} }.flatten.uniq.sort - [n]
-    end
-
     def d(n)
-      d = proper_divisors(n).inject(&:+)
+      d = n.proper_divisors.inject(&:+)
     end
 
     def answer
