@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require File.dirname(__FILE__) + '/problem_base'
+require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
 
 module ProjectEuler
   class Problem001 < ProjectEuler::ProblemBase
