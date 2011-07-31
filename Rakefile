@@ -57,7 +57,7 @@ describe ProjectEuler::Problem<%= number %> do
 end
   EOF
   spec = spec.result(binding)
-  write_to_file(File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb"), impl)
+  write_to_file(File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb"), spec)
 end
 
 def write_to_file(path, content)
