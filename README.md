@@ -1,6 +1,8 @@
 # Project Euler
 
 These are my solutions to the problems listed on [Project Euler](http://projecteuler.net/).
+Also included, for reference, are the problem specifications, for which I take no credit -- they come
+straight from [projecteuler.net](http://projecteuler.net/).
 
 ## Installation
 
