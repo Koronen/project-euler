@@ -1,5 +1,5 @@
 require 'spec_helper'
-require File.join(File.expand_path(File.dirname(__FILE__)), '..', '..', 'lib', 'project_euler', 'problem_helper')
+require 'problem_helper'
 
 describe Integer do
   it "calculates prime_factors correctly" do

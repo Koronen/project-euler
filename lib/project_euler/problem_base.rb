@@ -1,11 +1,11 @@
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_helper')
+require 'problem_helper'
 
 module ProjectEuler
   DATA_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '..', '..', 'data')
 
   class ProblemBase
-    def self.run!
-      puts new.answer
+    def self.answer
+      nil
     end
   end
 end

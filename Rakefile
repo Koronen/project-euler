@@ -25,7 +25,8 @@ DESCRIPTION
   impl = ERB.new <<-EOF
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem<%= number %> < ProjectEuler::ProblemBase
@@ -35,9 +36,7 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem<%= number %>.run!
-end
+run_problem! if $0 == __FILE__
   EOF
   impl = impl.result(binding)
   file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler', "problem_#{number}.rb")
@@ -47,15 +46,13 @@ end
   # spec
   spec = ERB.new <<-EOF
 require 'spec_helper'
-require 'project_euler/problem_<%= number %>'
+require 'problem_<%= number %>'
 
-describe ProjectEuler::Problem<%= number %> do
-  before do
-    @instance = ProjectEuler::Problem<%= number %>.new
-  end
-
-  it "gives the correct answer" do
-    @instance.answer.should eq(0)
+module ProjectEuler
+  describe Problem<%= number %> do
+    it "gives the correct answer" do
+      Problem<%= number %>.answer.should eq(0)
+    end
   end
 end
   EOF

@@ -11,3 +11,14 @@ class Integer
     1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*)} }.flatten.uniq.sort - [self]
   end
 end
+
+def run_problem!
+  klass = File.basename($0).gsub(/\.rb$/, '').camelize
+
+  unless klass.match(/Problem(\d){3}/)
+    puts $STDERR, "No matching problem"
+    return
+  end
+
+  puts ProjectEuler.const_get(klass).answer
+end
