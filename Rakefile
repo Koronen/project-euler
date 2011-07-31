@@ -18,7 +18,8 @@ task :new, :number do |t, args|
 
 DESCRIPTION
   EOF
-  write_to_file(File.join(File.expand_path(File.dirname(__FILE__)), 'doc', 'project_euler', "problem_#{number}.md"), doc)
+  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'doc', 'project_euler', "problem_#{number}.md")
+  write_to_file(file_path, doc)
 
   # implementation
   impl = ERB.new <<-EOF
@@ -39,7 +40,9 @@ if $0 == __FILE__
 end
   EOF
   impl = impl.result(binding)
-  write_to_file(File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler', "problem_#{number}.rb"), impl)
+  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler', "problem_#{number}.rb")
+  write_to_file(file_path, impl)
+  system("chmod +x #{file_path}")
 
   # spec
   spec = ERB.new <<-EOF
@@ -57,7 +60,8 @@ describe ProjectEuler::Problem<%= number %> do
 end
   EOF
   spec = spec.result(binding)
-  write_to_file(File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb"), spec)
+  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb")
+  write_to_file(file_path, spec)
 end
 
 def write_to_file(path, content)
