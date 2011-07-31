@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require File.dirname(__FILE__) + '/problem_base'
+require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
 
 module ProjectEuler
   class Problem020 < ProjectEuler::ProblemBase
     def answer
-      0
+      (1..100).to_a.inject(&:*).to_s.split(//).map(&:to_i).inject(&:+)
     end
   end
 end
