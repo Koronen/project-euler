@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem013 < ProjectEuler::ProblemBase
@@ -107,12 +108,10 @@ module ProjectEuler
       53503534226472524250874054075591789781264330331690
     )
 
-    def answer
-      N.map(&:to_i).inject(&:+).to_s[0..9].to_i
+    def self.answer
+      N.map(&:to_i).sum.to_s[0..9].to_i
     end
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem013.run!
-end
+run_problem! if $0 == __FILE__

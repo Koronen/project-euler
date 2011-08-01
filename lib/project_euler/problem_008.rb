@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem008 < ProjectEuler::ProblemBase
@@ -25,7 +26,7 @@ module ProjectEuler
         "05886116467109405077541002256983155200055935729725" \
         "71636269561882670428252483600823257530420752963450"
 
-    def answer
+    def self.answer
       answer = 0
 
       0.upto(N.size - 5) do |pos|
@@ -39,6 +40,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem008.run!
-end
+run_problem! if $0 == __FILE__

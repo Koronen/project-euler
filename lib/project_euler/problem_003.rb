@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
-require 'prime'
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem003 < ProjectEuler::ProblemBase
-    def answer
+    def self.answer
       n = 600851475143
 
       Prime.each do |p|
@@ -25,6 +25,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem003.run!
-end
+run_problem! if $0 == __FILE__

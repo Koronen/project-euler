@@ -1,14 +1,15 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem022 < ProjectEuler::ProblemBase
-    def name_value(name)
-      name.each_char.map{|c| c.ord - 'A'.ord + 1 }.inject(0, &:+)
+    def self.name_value(name)
+      name.each_char.map{|c| c.ord - 'A'.ord + 1 }.sum
     end
 
-    def answer
+    def self.answer
       score = 0
 
       file_path = File.join(ProjectEuler::DATA_DIR, 'names.txt')
@@ -22,6 +23,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem022.run!
-end
+run_problem! if $0 == __FILE__

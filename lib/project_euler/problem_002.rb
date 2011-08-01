@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem002 < ProjectEuler::ProblemBase
-    def answer
+    def self.answer
       fibs = [1, 2]
 
       while fibs.last < 4000000 do
@@ -16,6 +17,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem002.run!
-end
+run_problem! if $0 == __FILE__

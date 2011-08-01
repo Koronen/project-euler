@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem018 < ProjectEuler::ProblemBase
@@ -22,7 +23,7 @@ module ProjectEuler
       04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
     ).split(/\n/).map{|s| s.split.map(&:to_i) }.delete_if{|a| a.empty? }
 
-    def answer
+    def self.answer
       prev = TREE.first
 
       TREE[1..-1].each_with_index do |row, j|
@@ -45,6 +46,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem018.run!
-end
+run_problem! if $0 == __FILE__

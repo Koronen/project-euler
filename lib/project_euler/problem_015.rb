@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem015 < ProjectEuler::ProblemBase
-    def answer
+    def self.answer
       grid = Array.new(21){ Array.new(21, 0) }
       grid[0][0] = 1
 
@@ -20,6 +21,4 @@ module ProjectEuler
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem015.run!
-end
+run_problem! if $0 == __FILE__

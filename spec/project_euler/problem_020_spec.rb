@@ -1,12 +1,10 @@
 require 'spec_helper'
-require 'project_euler/problem_020'
+require 'problem_020'
 
-describe ProjectEuler::Problem020 do
-  before do
-    @instance = ProjectEuler::Problem020.new
-  end
-
-  it "gives the correct answer" do
-    @instance.answer.should eq(648)
+module ProjectEuler
+  describe Problem020 do
+    it "gives the correct answer" do
+      Problem020.answer.should eq(648)
+    end
   end
 end

@@ -1,6 +1,22 @@
 require 'active_support/all'
 require 'prime'
 
+class Array
+  # Number product
+  # Like sum but multiplies instead of adds
+  def nproduct
+    self.inject(&:*)
+  end
+end
+
+class Range
+  # Number product
+  # Like sum but multiplies instead of adds
+  def nproduct
+    self.inject(&:*)
+  end
+end
+
 class Integer
   def prime_factors
     self.prime_division.map{|f, c| 1.upto(c).map{ f } }.flatten
@@ -8,7 +24,7 @@ class Integer
 
   def proper_divisors
     pf = self.prime_factors << 1
-    1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*)} }.flatten.uniq.sort - [self]
+    1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.nproduct unless f.blank? } }.flatten.uniq.sort - [self]
   end
 end
 

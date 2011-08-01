@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require File.join(File.expand_path(File.dirname(__FILE__)), 'problem_base')
+$: << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
 
 module ProjectEuler
   class Problem011 < ProjectEuler::ProblemBase
@@ -25,82 +26,77 @@ module ProjectEuler
       20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
       20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
       01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-    ).each_slice(20).map{|a| a.map(&:to_i)}
+    ).each_slice(20).map{|a| a.map(&:to_i) }
 
-    def answer
-      [horizontal_max, vertical_max, diagonal_max].max
-    end
-
-  private
-
-    def horizontal_max
-      max = 0
-
-      GRID.each do |row|
-        row.each_cons(4) do |cons|
-          product = cons.inject(&:*)
-          max = product if product > max
-        end
+    class << self
+      def answer
+        [horizontal_max, vertical_max, diagonal_max].max
       end
 
-      max
-    end
+    private
 
-    def vertical_max
-      max = 0
-
-      GRID.transpose.each do |row|
-        row.each_cons(4) do |cons|
-          product = cons.inject(&:*)
-          max = product if product > max
-        end
+      def horizontal_max
+        row_max GRID
       end
 
-      max
-    end
+      def vertical_max
+        row_max GRID.transpose
+      end
 
-    def diagonal_max
-      [diagonal_max_ltr, diagonal_max_rtl].max
-    end
+      def row_max(grid)
+        max = 0
 
-    def diagonal_max_ltr
-      max = 0
-
-      0.upto(16) do |row|
-        0.upto(16) do |col|
-          product = 1
-
-          0.upto(3) do |offset|
-            product *= GRID[row+offset][col+offset]
+        grid.each do |row|
+          row.each_cons(4) do |cons|
+            product = cons.nproduct
+            max = product if product > max
           end
-
-          max = product if product > max
         end
+
+        max
       end
 
-      max
-    end
+      def diagonal_max
+        [diagonal_max_ltr, diagonal_max_rtl].max
+      end
 
-    def diagonal_max_rtl
-      max = 0
+      def diagonal_max_ltr
+        max = 0
 
-      0.upto(16) do |row|
-        3.upto(19) do |col|
-          product = 1
+        0.upto(16) do |row|
+          0.upto(16) do |col|
+            product = 1
 
-          0.upto(3) do |offset|
-            product *= GRID[row+offset][col-offset]
+            0.upto(3) do |offset|
+              product *= GRID[row+offset][col+offset]
+            end
+
+            max = product if product > max
           end
-
-          max = product if product > max
         end
+
+        max
       end
 
-      max
+      def diagonal_max_rtl
+        max = 0
+
+        0.upto(16) do |row|
+          3.upto(19) do |col|
+            product = 1
+
+            0.upto(3) do |offset|
+              product *= GRID[row+offset][col-offset]
+            end
+
+            max = product if product > max
+          end
+        end
+
+        max
+      end
     end
   end
 end
 
-if $0 == __FILE__
-  ProjectEuler::Problem011.run!
-end
+run_problem! if $0 == __FILE__
