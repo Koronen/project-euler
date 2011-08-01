@@ -18,13 +18,30 @@ class Range
 end
 
 class Integer
+  # List of all prime factors
   def prime_factors
     self.prime_division.map{|f, c| 1.upto(c).map{ f } }.flatten
   end
 
+  # List of proper divisors
   def proper_divisors
     pf = self.prime_factors << 1
     1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.nproduct unless f.blank? } }.flatten.uniq.sort - [self]
+  end
+
+  # Is this a perfect number?
+  def perfect?
+    proper_divisors.sum == self
+  end
+
+  # Is this a deficient number?
+  def deficient?
+    proper_divisors.sum < self
+  end
+
+  # Is this an abundant number?
+  def abundant?
+    proper_divisors.sum > self
   end
 end
 

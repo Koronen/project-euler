@@ -19,4 +19,26 @@ describe Integer do
     220.proper_divisors.should eq([1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110])
     284.proper_divisors.should eq([1, 2, 4, 71, 142])
   end
+
+  it "determines perfect? correctly" do
+    1.perfect?.should be_false
+    6.perfect?.should be_true
+    10.perfect?.should be_false
+    28.perfect?.should be_true
+  end
+
+  it "determines deficient? correctly" do
+    1.deficient?.should be_true
+    10.deficient?.should be_true
+    28.deficient?.should be_false
+    30.deficient?.should be_false
+  end
+#A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
+  it "determines abundant? correctly" do
+    1.abundant?.should be_false
+    10.abundant?.should be_false
+    12.abundant?.should be_true
+    28.abundant?.should be_false
+    30.abundant?.should be_true
+  end
 end
