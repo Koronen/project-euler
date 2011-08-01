@@ -33,7 +33,7 @@ describe Integer do
     28.deficient?.should be_false
     30.deficient?.should be_false
   end
-#A number n is called deficient if the sum of its proper divisors is less than n and it is called abundant if this sum exceeds n.
+
   it "determines abundant? correctly" do
     1.abundant?.should be_false
     10.abundant?.should be_false
