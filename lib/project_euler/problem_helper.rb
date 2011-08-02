@@ -43,6 +43,11 @@ class Integer
   def abundant?
     proper_divisors.sum > self
   end
+
+  # Splits integer into list of digits
+  def digits
+    self.to_s.split(//).map(&:to_i)
+  end
 end
 
 module ProjectEuler

@@ -41,4 +41,10 @@ describe Integer do
     28.abundant?.should be_false
     30.abundant?.should be_true
   end
+
+  it "calculates digits correctly" do
+    1.digits.should eq([1])
+    12.digits.should eq([1,2])
+    123.digits.should eq([1,2,3])
+  end
 end
