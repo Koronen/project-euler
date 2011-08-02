@@ -30,7 +30,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem<%= number %> < ProjectEuler::ProblemBase
-    def answer
+    def self.answer!
       0
     end
   end
