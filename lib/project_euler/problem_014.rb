@@ -2,7 +2,6 @@
 
 $: << File.join(File.expand_path(File.dirname(__FILE__)))
 require 'problem_base'
-#require 'memoize'; include Memoize
 
 module ProjectEuler
   class Problem014 < ProjectEuler::ProblemBase
