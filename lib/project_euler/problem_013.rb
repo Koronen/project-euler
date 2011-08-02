@@ -108,7 +108,7 @@ module ProjectEuler
       53503534226472524250874054075591789781264330331690
     )
 
-    def self.answer
+    def self.answer!
       N.map(&:to_i).sum.to_s[0..9].to_i
     end
   end

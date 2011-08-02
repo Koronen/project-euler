@@ -9,7 +9,7 @@ module ProjectEuler
       name.each_char.map{|c| c.ord - 'A'.ord + 1 }.sum
     end
 
-    def self.answer
+    def self.answer!
       score = 0
 
       file_path = File.join(ProjectEuler::DATA_DIR, 'names.txt')

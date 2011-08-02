@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem020 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       (1..100).nproduct.to_s.split(//).map(&:to_i).sum
     end
   end

@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem019 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       answer = 0
 
       1901.upto(2000) do |year|

@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem005 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       (1..20).inject(1) do |n, i|
         # product of prime factors missing from n
         # or 1 if none are missing

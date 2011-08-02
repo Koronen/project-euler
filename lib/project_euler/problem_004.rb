@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem004 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       answer = 0
 
       100.upto(999) do |a|

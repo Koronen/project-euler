@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem015 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       grid = Array.new(21){ Array.new(21, 0) }
       grid[0][0] = 1
 

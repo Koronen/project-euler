@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem003 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       n = 600851475143
 
       Prime.each do |p|

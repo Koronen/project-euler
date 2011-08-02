@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem010 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       sum = 0
 
       Prime.each do |p|

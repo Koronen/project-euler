@@ -23,7 +23,7 @@ module ProjectEuler
       04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
     ).split(/\n/).map{|s| s.split.map(&:to_i) }.delete_if{|a| a.empty? }
 
-    def self.answer
+    def self.answer!
       prev = TREE.first
 
       TREE[1..-1].each_with_index do |row, j|

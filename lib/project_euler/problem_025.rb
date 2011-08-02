@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem025 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       a, b, i = 1, 1, 2
 
       while b.to_s.length < 1000 do

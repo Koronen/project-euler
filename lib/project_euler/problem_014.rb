@@ -20,7 +20,7 @@ module ProjectEuler
       memoize :chain_length
     end
 
-    def self.answer
+    def self.answer!
       (1..1_000_000).max_by{|x| chain_length(x) }
     end
   end

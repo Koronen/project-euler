@@ -9,7 +9,7 @@ module ProjectEuler
       n.proper_divisors.sum
     end
 
-    def self.answer
+    def self.answer!
       2.upto(9999).select{|a| b = d(a); a != b && a == d(b) }.sum
     end
   end

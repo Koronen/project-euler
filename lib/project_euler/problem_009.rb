@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem009 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       1.upto(1000) do |a|
         (a+1).upto(1000) do |b|
           c = Math.sqrt(a**2 + b**2).to_i

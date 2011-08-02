@@ -5,7 +5,7 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem002 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       fibs = [1, 2]
 
       while fibs.last < 4000000 do

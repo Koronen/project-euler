@@ -6,7 +6,7 @@ require 'linguistics'
 
 module ProjectEuler
   class Problem017 < ProjectEuler::ProblemBase
-    def self.answer
+    def self.answer!
       (1..1000).map do |n|
         Linguistics::EN.numwords(n).split(//)
       end.flatten.count do |c|
