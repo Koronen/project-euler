@@ -45,6 +45,19 @@ class Integer
   end
 end
 
+module ProjectEuler
+  LOGGER = lambda do
+    l = Logger.new(STDERR)
+    l.level = Logger::WARN
+    l.formatter = lambda {|severity, datetime, progname, msg| "#{datetime}: [#{severity}] #{msg}\n" }
+    l
+  end.call
+
+  def ProjectEuler.logger
+    LOGGER
+  end
+end
+
 def run_problem!
   klass = File.basename($0).gsub(/\.rb$/, '').camelize
 

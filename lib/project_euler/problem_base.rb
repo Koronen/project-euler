@@ -5,11 +5,16 @@ module ProjectEuler
 
   class ProblemBase
     def self.answer!
+      ProjectEuler.logger.warn("Calling ProblemBase#answer!")
       nil
     end
 
     def self.answer
-      @answer ||= self.answer!
+      unless @answer
+        ProjectEuler.logger.debug("Calling #{self.name}#answer...")
+        @answer = self.answer!
+      end
+      @answer
     end
   end
 end
