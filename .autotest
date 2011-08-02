@@ -1,1 +1,1 @@
-require "autotest/bundler"
+require 'autotest/bundler'

@@ -9,8 +9,7 @@ module ProjectEuler
       Problem014.chain_length(3).should eq(7)
     end
 
-    it "gives the correct answer" do
-      pending("skipped to speed up test suite (takes ~1m on a Core 2 Duo @2GHz)")
+    it "gives the correct answer", :slow => true do
       Problem014.answer.should eq(837799)
     end
   end
