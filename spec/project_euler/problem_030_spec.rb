@@ -8,9 +8,7 @@ module ProjectEuler
     end
 
     it "gives the correct answer" do
-      #Problem030.answer.should_not eq(8301)
-      #Problem030.answer.should_not eq(248860)
-      #Problem030.answer.should eq(0)
+      Problem030.answer.should eq(443839)
     end
   end
 end

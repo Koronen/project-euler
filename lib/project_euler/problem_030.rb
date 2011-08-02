@@ -5,17 +5,19 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem030 < ProjectEuler::ProblemBase
-    class << self
-      extend ActiveSupport::Memoizable
+    def self.digits_power_sum(n, power)
+      sum = 0
 
-      def digits_power_sum(digits, power)
-        digits.map{|d| d**power }.sum
+      while n > 0
+        sum += (n % 10)**power
+        n /= 10
       end
-      memoize :digits_power_sum
+
+      sum
     end
-    
+
     def self.nth_power_digits_numbers(power)
-      1.upto(999_999).select{|n| n > 10 && n == self.digits_power_sum(n.digits.sort, power) }
+      2.upto(1_000_000).select{|n| n > 10 && n == self.digits_power_sum(n, power) }
     end
 
     def self.answer!
