@@ -11,7 +11,7 @@ module ProjectEuler
 
     def self.answer
       unless @answer
-        ProjectEuler.logger.debug("Calling #{self.name}#answer...")
+        ProjectEuler.logger.debug("Calling #{self.name}#answer!...")
         @answer = self.answer!
       end
       @answer
