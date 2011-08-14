@@ -1,1 +1,6 @@
 require 'autotest/bundler'
+require 'autotest/growl'
+
+module Autotest::Growl
+  @@clear_terminal = false
+end
