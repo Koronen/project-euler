@@ -9,4 +9,6 @@ gem 'memoize'
 # Testing
 gem 'rspec'
 gem 'guard'
+gem 'guard-rspec'
+gem 'rb-inotify'
 gem 'libnotify'
