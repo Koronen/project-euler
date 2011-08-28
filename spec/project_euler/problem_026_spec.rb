@@ -3,6 +3,8 @@ require 'problem_026'
 
 module ProjectEuler
   describe Problem026 do
+    #it_is_solvable_in_time { Problem026.answer }
+
     it "calculates fraction_recurring_cycle correctly" do
       pending("need to find a new way of extracting fractions")
       Problem026.fraction_recurring_cycle(1, 2).should be_nil # no recurring cycle
