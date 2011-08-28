@@ -8,5 +8,5 @@ gem 'memoize'
 
 # Testing
 gem 'rspec'
-gem 'autotest'
-gem 'autotest-growl'
+gem 'guard'
+gem 'libnotify'
