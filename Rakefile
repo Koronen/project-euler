@@ -30,8 +30,10 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem<%= number %> < ProjectEuler::ProblemBase
-    def self.answer!
-      0
+    class << self
+      def answer!
+        0
+      end
     end
   end
 end
@@ -50,7 +52,15 @@ require 'problem_<%= number %>'
 
 module ProjectEuler
   describe Problem<%= number %> do
+    it_is_solvable_in_time { Problem<%= number %>.answer }
+
+    it "calculates answer correctly" do
+      pending("stub")
+      Problem<%= number %>.answer.should eq(0)
+    end
+
     it "gives the correct answer" do
+      pending("stub")
       Problem<%= number %>.answer.should eq(0)
     end
   end
