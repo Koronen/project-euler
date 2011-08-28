@@ -46,8 +46,21 @@ class Integer
 
   # Splits integer into list of digits
   def digits
-    self.to_s.split(//).map(&:to_i)
+    digits = []
+    n = self
+    while n > 0
+      digits << n % 10
+      n /= 10
+    end
+    digits.reverse
   end
+
+  # Calculates the factorial of this number
+  def factorial
+    return 1 if self == 0
+    self.downto(1).inject(:*)
+  end
+  alias_method :!, :factorial
 end
 
 module ProjectEuler

@@ -47,4 +47,12 @@ describe Integer do
     12.digits.should eq([1,2])
     123.digits.should eq([1,2,3])
   end
+
+  it "calculates factorial correctly" do
+    0.factorial.should eq(1)
+    1.factorial.should eq(1)
+    2.factorial.should eq(2)
+    3.factorial.should eq(6)
+    4.factorial.should eq(24)
+  end
 end
