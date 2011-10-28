@@ -6,6 +6,9 @@ gem 'activesupport'
 gem 'linguistics'
 gem 'memoize'
 
+# Debuging
+gem 'ruby-debug19'
+
 # Testing
 gem 'rspec'
 gem 'guard'
