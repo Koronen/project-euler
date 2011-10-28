@@ -1,9 +1,12 @@
 $: << File.join(File.expand_path(File.dirname(__FILE__)), '..', 'lib', 'project_euler')
 require 'timeout'
 
-RSpec.configure do |c|
-  c.filter_run_excluding :slow => true # tests that take more than 5 seconds
-  c.fail_fast = true
+RSpec.configure do |config|
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  config.filter_run_excluding :slow => true # tests that take more than 5 seconds
+
+  config.fail_fast = true
 end
 
 =begin
