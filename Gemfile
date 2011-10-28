@@ -12,6 +12,7 @@ gem 'ruby-debug19'
 # Testing
 gem 'rspec'
 gem 'guard'
+gem 'guard-bundler'
 gem 'guard-rspec'
 gem 'rb-inotify'
 gem 'libnotify'
