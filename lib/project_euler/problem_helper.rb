@@ -17,10 +17,10 @@ class Range
   end
 end
 
-class Integer
+class Fixnum
   # List of all prime factors
   def prime_factors
-    self.prime_division.map{|f, c| 1.upto(c).map{ f } }.flatten
+    self.prime_division.map{|f, c| [f] * c }.flatten
   end
 
   # List of proper divisors
