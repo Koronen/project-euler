@@ -48,7 +48,7 @@ module ProjectEuler
 
         grid.each do |row|
           row.each_cons(4) do |cons|
-            product = cons.nproduct
+            product = cons.inject(&:*)
             max = product if product > max
           end
         end

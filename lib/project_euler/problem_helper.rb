@@ -1,22 +1,6 @@
 require 'active_support/all'
 require 'prime'
 
-class Array
-  # Number product
-  # Like sum but multiplies instead of adds
-  def nproduct
-    self.inject(&:*)
-  end
-end
-
-class Range
-  # Number product
-  # Like sum but multiplies instead of adds
-  def nproduct
-    self.inject(&:*)
-  end
-end
-
 class Fixnum
   # List of all prime factors
   def prime_factors
@@ -26,7 +10,7 @@ class Fixnum
   # List of proper divisors
   def proper_divisors
     pf = self.prime_factors << 1
-    1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.nproduct unless f.blank? } }.flatten.uniq.sort - [self]
+    1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*) unless f.blank? } }.flatten.uniq.sort - [self]
   end
 
   # Is this a perfect number?
@@ -60,7 +44,6 @@ class Fixnum
     return 1 if self == 0
     self.downto(1).inject(:*)
   end
-  alias_method :!, :factorial
 end
 
 module ProjectEuler

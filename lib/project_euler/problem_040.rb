@@ -30,7 +30,7 @@ module ProjectEuler
       end
 
       def answer!
-        0.upto(6).map{|i| nth_fraction_digit(10 ** i) }.nproduct
+        0.upto(6).map{|i| nth_fraction_digit(10 ** i) }.inject(&:*)
       end
     end
   end
