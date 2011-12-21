@@ -17,7 +17,7 @@ Of course not, but that should provide the impetus to return to the problem and 
 But remember that once you've solved a particular problem you will be able to access a thread relating to that problem and
 it is here that you may be able to pick some tips from others that have solved it.
 =end
-def it_is_solvable_in_time(timeout = 60, *options, &block)
+def it_is_solvable_in_time(timeout = 60, *options)
   it "is solvable within a reasonable amount time (#{timeout}s)", *options do
     expect{ Timeout::timeout(timeout){ yield } }.to_not raise_error(Timeout::Error)
   end
