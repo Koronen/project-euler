@@ -12,7 +12,7 @@ gem 'memoize'
 gem 'ruby-debug19'
 
 # Testing
-gem 'rspec', '~> 2.8.0'
+gem 'rspec', '~> 2.10.0'
 gem 'guard', '~> 1.0.0'
 gem 'guard-bundler'
 gem 'guard-rspec'
