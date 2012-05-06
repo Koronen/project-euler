@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__)))
+require 'problem_base'
+
+module ProjectEuler
+  class Problem<%= number %> < ProjectEuler::ProblemBase
+    class << self
+      def answer!
+        0
+      end
+    end
+  end
+end
+
+run_problem! if $0 == __FILE__

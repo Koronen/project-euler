@@ -1,0 +1,18 @@
+require 'spec_helper'
+require 'problem_<%= number %>'
+
+module ProjectEuler
+  describe Problem<%= number %> do
+    it_is_solvable_in_time { Problem<%= number %>.answer }
+
+    it "calculates answer correctly" do
+      pending("stub")
+      Problem<%= number %>.answer.should eq(0)
+    end
+
+    it "gives the correct answer" do
+      pending("stub")
+      Problem<%= number %>.answer.should eq(0)
+    end
+  end
+end

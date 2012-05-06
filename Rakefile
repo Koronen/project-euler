@@ -13,59 +13,19 @@ task :new, :number do |t, args|
   # TODO: check if exists
 
   # doc
-  doc = <<-EOF
-# TITLE
-
-DESCRIPTION
-  EOF
+  doc = ERB.new File.read('templates/problem.md.erb')
   file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'doc', 'project_euler', "problem_#{number}.md")
   write_to_file(file_path, doc)
 
   # implementation
-  impl = ERB.new <<-EOF
-#!/usr/bin/env ruby
-
-$: << File.join(File.expand_path(File.dirname(__FILE__)))
-require 'problem_base'
-
-module ProjectEuler
-  class Problem<%= number %> < ProjectEuler::ProblemBase
-    class << self
-      def answer!
-        0
-      end
-    end
-  end
-end
-
-run_problem! if $0 == __FILE__
-  EOF
+  impl = ERB.new File.read('templates/problem.rb.erb')
   impl = impl.result(binding)
   file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler', "problem_#{number}.rb")
   write_to_file(file_path, impl)
   system("chmod +x #{file_path}")
 
   # spec
-  spec = ERB.new <<-EOF
-require 'spec_helper'
-require 'problem_<%= number %>'
-
-module ProjectEuler
-  describe Problem<%= number %> do
-    it_is_solvable_in_time { Problem<%= number %>.answer }
-
-    it "calculates answer correctly" do
-      pending("stub")
-      Problem<%= number %>.answer.should eq(0)
-    end
-
-    it "gives the correct answer" do
-      pending("stub")
-      Problem<%= number %>.answer.should eq(0)
-    end
-  end
-end
-  EOF
+  spec = ERB.new File.read('templates/problem_spec.rb.erb')
   spec = spec.result(binding)
   file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb")
   write_to_file(file_path, spec)
