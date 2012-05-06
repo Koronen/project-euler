@@ -13,25 +13,20 @@ task :new, :number do |t, args|
   # TODO: check if exists
 
   # doc
-  doc = ERB.new File.read('templates/problem.md.erb')
-  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'doc', 'project_euler', "problem_#{number}.md")
-  write_to_file(file_path, doc)
+  write_template_to_file 'templates/problem.md.erb', binding, "doc/project_euler/problem_#{number}.md"
 
   # implementation
-  impl = ERB.new File.read('templates/problem.rb.erb')
-  impl = impl.result(binding)
-  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler', "problem_#{number}.rb")
-  write_to_file(file_path, impl)
+  file_path = "lib/project_euler/problem_#{number}.rb"
+  write_template_to_file 'templates/problem.rb.erb', binding, file_path
   system("chmod +x #{file_path}")
 
   # spec
-  spec = ERB.new File.read('templates/problem_spec.rb.erb')
-  spec = spec.result(binding)
-  file_path = File.join(File.expand_path(File.dirname(__FILE__)), 'spec', 'project_euler', "problem_#{number}_spec.rb")
-  write_to_file(file_path, spec)
+  write_template_to_file 'templates/problem_spec.rb.erb', binding, "spec/project_euler/problem_#{number}_spec.rb"
 end
 
-def write_to_file(path, content)
-  File.open(path, 'w'){ |f| f.write(content) }
-  puts "Created file #{path}"
+def write_template_to_file(template_path, binding, file_path)
+  erb_template = ERB.new File.read(template_path)
+  content = erb_template.result(binding)
+  File.open(file_path, 'w'){ |f| f.write(content) }
+  puts "Created file #{file_path}"
 end
