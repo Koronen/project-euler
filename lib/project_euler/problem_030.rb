@@ -22,7 +22,7 @@ module ProjectEuler
       end
 
       def answer!
-        self.nth_power_digits_numbers(5).sum
+        self.nth_power_digits_numbers(5).inject(&:+)
       end
     end
   end

@@ -9,7 +9,7 @@ module ProjectEuler
     UPPER_LIMIT = 28123
 
     def self.answer!
-      sum = 1.upto(LOWER_LIMIT-1).sum
+      sum = 1.upto(LOWER_LIMIT-1).inject(&:+)
 
       #abu = 1.upto(UPPER_LIMIT).select{|x| x.abundant? }
       #cmbs = abu.repeated_permutation(2).map(&:sum).sort.uniq

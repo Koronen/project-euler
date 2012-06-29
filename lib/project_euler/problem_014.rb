@@ -5,22 +5,30 @@ require 'problem_base'
 
 module ProjectEuler
   class Problem014 < ProjectEuler::ProblemBase
-    class << self
-      extend ActiveSupport::Memoizable
+    @@chain_lengths = {}
 
+    class << self
       def chain_length(start_at)
+        if @@chain_lengths[start_at]
+          @@chain_lengths[start_at]
+        else
+          (@@chain_lengths[start_at] = chain_length!(start_at))
+        end
+      end
+
+      def chain_length!(start_at)
         return 0 if start_at == 1
+
         if start_at.odd?
           1 + chain_length(3 * start_at + 1)
         else
           1 + chain_length(start_at / 2)
         end
       end
-      memoize :chain_length
-    end
 
-    def self.answer!
-      (1..1_000_000).max_by{|x| chain_length(x) }
+      def answer!
+        (1..1_000_000).max_by{|x| chain_length(x) }
+      end
     end
   end
 end

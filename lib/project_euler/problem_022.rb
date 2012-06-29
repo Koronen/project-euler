@@ -6,7 +6,7 @@ require 'problem_base'
 module ProjectEuler
   class Problem022 < ProjectEuler::ProblemBase
     def self.name_value(name)
-      name.each_char.map{|c| c.ord - 'A'.ord + 1 }.sum
+      name.each_char.map{|c| c.ord - 'A'.ord + 1 }.inject(&:+) || 0
     end
 
     def self.answer!

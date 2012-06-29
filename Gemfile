@@ -4,7 +4,6 @@ gem 'rake', '~> 0.9.2'
 
 # Helpers
 gem 'i18n'
-gem 'activesupport', '>= 3.0.0'
 gem 'linguistics'
 gem 'memoize'
 

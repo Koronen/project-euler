@@ -13,7 +13,7 @@ module ProjectEuler
         while line = file.gets
           row = line.split.map(&:to_i)
 
-          unless prev.blank?
+          unless prev.empty?
             row.each_with_index do |e, i|
               if i == 0
                 e += prev[i]
