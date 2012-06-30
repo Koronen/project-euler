@@ -44,14 +44,3 @@ class Fixnum
     self.downto(1).inject(:*)
   end
 end
-
-def run_problem!
-  klass = File.basename($0).gsub(/\.rb$/, '').split('_').map(&:capitalize).join
-
-  unless klass.match(/Problem(\d){3}/)
-    puts $STDERR, "No matching problem"
-    return
-  end
-
-  puts ProjectEuler.const_get(klass).answer
-end
