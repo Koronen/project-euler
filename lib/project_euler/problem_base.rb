@@ -9,10 +9,7 @@ module ProjectEuler
     end
 
     def self.answer
-      unless @answer
-        @answer = self.answer!
-      end
-      @answer
+      @answer ||= self.answer!
     end
   end
 end
