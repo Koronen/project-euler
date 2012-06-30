@@ -4,11 +4,7 @@ module ProjectEuler
 
     class << self
       def chain_length(start_at)
-        if @@chain_lengths[start_at]
-          @@chain_lengths[start_at]
-        else
-          (@@chain_lengths[start_at] = chain_length!(start_at))
-        end
+        @@chain_lengths[start_at] ||= chain_length!(start_at)
       end
 
       def chain_length!(start_at)
