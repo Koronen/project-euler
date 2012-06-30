@@ -1,12 +1,22 @@
-require 'rspec/core/rake_task'
-require 'erb'
+require 'bundler'
+require 'rake/testtask'
 
-RSpec::Core::RakeTask.new(:spec)
+task default: :spec
 
-task :default => :spec
+Rake::TestTask.new :spec do |t|
+  t.libs << 'spec' << 'lib'
+  t.test_files = FileList['spec/**/*_spec.rb']
+end
+
+Rake::TestTask.new :acceptance do |t|
+  t.libs << 'spec' << 'lib'
+  t.test_files = FileList['spec/**/*_acceptance.rb']
+end
 
 desc "Create a stub for a new problem"
 task :new, :number do |t, args|
+  require 'erb'
+
   raise ArgumentError if args[:number].nil?
   number = "%03d" % args[:number]
 
