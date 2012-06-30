@@ -1,8 +1,3 @@
-#!/usr/bin/env ruby
-
-$: << File.join(File.expand_path(File.dirname(__FILE__)))
-require 'problem_base'
-
 module ProjectEuler
   class Problem029 < ProjectEuler::ProblemBase
     def self.distinct_sequence_terms(low = 2, high = 100)
@@ -14,5 +9,3 @@ module ProjectEuler
     end
   end
 end
-
-run_problem! if $0 == __FILE__

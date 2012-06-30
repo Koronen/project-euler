@@ -1,8 +1,3 @@
-#!/usr/bin/env ruby
-
-$: << File.join(File.expand_path(File.dirname(__FILE__)))
-require 'problem_base'
-
 module ProjectEuler
   class Problem030 < ProjectEuler::ProblemBase
     class << self
@@ -27,5 +22,3 @@ module ProjectEuler
     end
   end
 end
-
-run_problem! if $0 == __FILE__

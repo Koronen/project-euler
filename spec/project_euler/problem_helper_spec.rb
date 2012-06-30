@@ -1,5 +1,6 @@
 require 'spec_helper'
-require 'problem_helper'
+
+require 'project_euler/problem_helper'
 
 describe Fixnum do
   it "calculates prime_factors correctly" do

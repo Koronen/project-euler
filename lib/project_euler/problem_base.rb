@@ -1,4 +1,4 @@
-require 'problem_helper'
+require 'project_euler/problem_helper'
 
 module ProjectEuler
   DATA_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '..', '..', 'data')

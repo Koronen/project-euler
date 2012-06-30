@@ -1,5 +1,7 @@
-$: << File.join(File.expand_path(File.dirname(__FILE__)), '..', 'lib', 'project_euler')
 require 'timeout'
+
+$LOAD_PATH << File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'project_euler/problem_base'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true

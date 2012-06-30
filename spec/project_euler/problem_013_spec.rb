@@ -1,5 +1,6 @@
 require 'spec_helper'
-require 'problem_013'
+
+require 'project_euler/problem_013'
 
 module ProjectEuler
   describe Problem013 do

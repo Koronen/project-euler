@@ -12,10 +12,6 @@ straight from [projecteuler.net](http://projecteuler.net/).
 
 ## Usage
 
-To print the answer to a single problem:
-
-    ruby lib/project_euler/problem_XXX.rb
-
 To run all specs:
 
     rake
