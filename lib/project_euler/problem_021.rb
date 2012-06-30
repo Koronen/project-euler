@@ -1,7 +1,9 @@
 module ProjectEuler
   class Problem021 < ProjectEuler::ProblemBase
+    @@d = {}
+
     def self.d(n)
-      n.proper_divisors.inject(&:+) || 0
+      @@d[n] ||= (n.proper_divisors.inject(&:+) || 0)
     end
 
     def self.answer!
