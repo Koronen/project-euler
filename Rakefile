@@ -1,7 +1,7 @@
 require 'bundler'
 require 'rake/testtask'
 
-task default: :spec
+task default: [:spec, :acceptance]
 
 Rake::TestTask.new :spec do |t|
   t.libs << 'spec' << 'lib'
