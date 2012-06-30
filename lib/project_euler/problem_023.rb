@@ -1,19 +1,27 @@
 module ProjectEuler
   class Problem023 < ProjectEuler::ProblemBase
-    LOWER_LIMIT = 24
-    UPPER_LIMIT = 28123
+    # See: http://mathworld.wolfram.com/AbundantNumber.html
+    UPPER_LIMIT = 20161
 
     def self.answer!
-      sum = 1.upto(LOWER_LIMIT-1).inject(&:+)
+      abundant_numbers = [12]
+      abundant_number_sums = {24 => nil}
 
-      #abu = 1.upto(UPPER_LIMIT).select{|x| x.abundant? }
-      #cmbs = abu.repeated_permutation(2).map(&:sum).sort.uniq
-      #cmbs.each_with_index do |n, i|
-      #  prev = i == 0 ? 1 : cmbs[i-1]
-      #  sum += (prev+1).upto(cmbs[i]-1).sum
-      #end
+      while abundant_numbers.last < UPPER_LIMIT
+        # Get next abundant number
+        c = abundant_numbers.last + 1
+        c += 1 while ((proper_divisors(c).inject(&:+) || 0) <= c)
 
-      sum
+        # Add new sums
+        abundant_numbers << c
+        abundant_numbers.each do |n|
+          sum = n + c
+          break if sum > UPPER_LIMIT
+          abundant_number_sums[sum] = nil
+        end
+      end
+
+      (1..UPPER_LIMIT).to_a.select{|n| !abundant_number_sums.include?(n) }.inject(&:+)
     end
   end
 end
