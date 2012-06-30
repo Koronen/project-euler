@@ -12,21 +12,6 @@ class Fixnum
     1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*) unless f.empty? } }.flatten.uniq.sort - [self]
   end
 
-  # Is this a perfect number?
-  def perfect?
-    (proper_divisors.inject(&:+) || 0) == self
-  end
-
-  # Is this a deficient number?
-  def deficient?
-    (proper_divisors.inject(&:+) || 0) < self
-  end
-
-  # Is this an abundant number?
-  def abundant?
-    (proper_divisors.inject(&:+) || 0) > self
-  end
-
   # Splits integer into list of digits
   def digits
     digits = []

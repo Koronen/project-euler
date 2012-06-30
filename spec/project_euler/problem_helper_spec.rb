@@ -21,28 +21,6 @@ describe Fixnum do
     284.proper_divisors.must_equal [1, 2, 4, 71, 142]
   end
 
-  it 'determines perfect? correctly' do
-    1.perfect?.must_equal false
-    6.perfect?.must_equal true
-    10.perfect?.must_equal false
-    28.perfect?.must_equal true
-  end
-
-  it 'determines deficient? correctly' do
-    1.deficient?.must_equal true
-    10.deficient?.must_equal true
-    28.deficient?.must_equal false
-    30.deficient?.must_equal false
-  end
-
-  it 'determines abundant? correctly' do
-    1.abundant?.must_equal false
-    10.abundant?.must_equal false
-    12.abundant?.must_equal true
-    28.abundant?.must_equal false
-    30.abundant?.must_equal true
-  end
-
   it 'calculates digits correctly' do
     1.digits.must_equal [1]
     12.digits.must_equal [1,2]
