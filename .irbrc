@@ -1,2 +1,2 @@
-$: << File.join(File.expand_path(File.dirname(__FILE__)), 'lib', 'project_euler')
-require 'problem_helper'
+$LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__)), 'lib')
+require 'project_euler/problem_base'
