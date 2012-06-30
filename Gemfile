@@ -11,10 +11,6 @@ gem 'memoize'
 gem 'debugger'
 
 # Testing
-gem 'rspec', '~> 2.10.0'
 gem 'guard', '~> 1.2.0'
 gem 'guard-bundler'
-gem 'guard-rspec'
-gem 'rb-readline'
-gem 'rb-inotify'
-gem 'libnotify'
+gem 'guard-minitest'

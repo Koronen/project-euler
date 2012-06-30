@@ -1,12 +1,10 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
 guard 'bundler' do
   watch('Gemfile')
 end
 
-guard 'rspec', :version => 2, :all_after_pass => false, :all_on_start => false do
-  watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb')  { "spec/" }
+guard 'minitest', test_file_patterns: '*_{spec,acceptance}.rb' do
+  watch(%r{^spec/(.*)_spec\.rb})
+  watch(%r{^spec/(.*)_acceptance\.rb})
+  watch(%r{^lib/(.*)([^/]+)\.rb}) { |m| ["spec/#{m[1]}#{m[2]}_spec.rb", "spec/#{m[1]}#{m[2]}_acceptance.rb"] }
+  watch('spec/spec_helper.rb')    { ["spec", "acceptance"] }
 end
