@@ -1,9 +1,9 @@
-require 'project_euler/problem_helper'
+require 'project_euler'
 
 module ProjectEuler
-  DATA_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '..', '..', 'data')
-
   class ProblemBase
+    extend ProjectEuler::CommonMath
+
     def self.answer!
       nil
     end

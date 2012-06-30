@@ -3,7 +3,7 @@ module ProjectEuler
     @@d = {}
 
     def self.d(n)
-      @@d[n] ||= (n.proper_divisors.inject(&:+) || 0)
+      @@d[n] ||= (proper_divisors(n).inject(&:+) || 0)
     end
 
     def self.answer!
