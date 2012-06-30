@@ -25,7 +25,6 @@ class Fixnum
 
   # Calculates the factorial of this number
   def factorial
-    return 1 if self == 0
-    self.downto(1).inject(:*)
+    @factorial ||= (self == 0 ? 1 : self.downto(1).inject(:*))
   end
 end
