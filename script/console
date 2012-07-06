@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+(
+  cd `dirname $0`/..;
+  bundle exec irb -I"./lib" -r"project_euler/problem_base"
+)
