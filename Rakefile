@@ -20,18 +20,11 @@ task :new, :number do |t, args|
   raise ArgumentError if args[:number].nil?
   number = "%03d" % args[:number]
 
-  # TODO: check if exists
-
-  # doc
+  # TODO: check if exists before overwriting
   write_template_to_file 'templates/problem.md.erb', binding, "doc/project_euler/problem_#{number}.md"
-
-  # implementation
-  file_path = "lib/project_euler/problem_#{number}.rb"
-  write_template_to_file 'templates/problem.rb.erb', binding, file_path
-  system("chmod +x #{file_path}")
-
-  # spec
+  write_template_to_file 'templates/problem_acceptance.rb.erb', binding, "spec/project_euler/problem_#{number}_acceptance.rb"
   write_template_to_file 'templates/problem_spec.rb.erb', binding, "spec/project_euler/problem_#{number}_spec.rb"
+  write_template_to_file 'templates/problem.rb.erb', binding, "lib/project_euler/problem_#{number}.rb"
 end
 
 def write_template_to_file(template_path, binding, file_path)
