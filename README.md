@@ -16,10 +16,6 @@ To run all specs:
 
     rake
 
-To run specs for a single problem:
-
-    rspec spec/project_euler/problem_XXX.rb
-
 ## License
 
 The MIT License
