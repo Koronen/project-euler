@@ -5,7 +5,6 @@ gem 'rake'
 # Helpers
 gem 'i18n'
 gem 'linguistics'
-gem 'memoize'
 
 # Debugging
 gem 'debugger'
