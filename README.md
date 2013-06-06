@@ -12,9 +12,13 @@ straight from [projecteuler.net](http://projecteuler.net/).
 
 ## Usage
 
-To run all specs:
+To run all tests:
 
     rake
+
+To run all tests with verbose output (including timing):
+
+    rake TESTOPTS="--verbose"
 
 ## License
 
