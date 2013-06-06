@@ -1,26 +1,35 @@
 module ProjectEuler
   class Problem026 < ProjectEuler::ProblemBase
     class << self
-      def fraction_recurring_cycle(a, b)
-        fraction = a.to_f / b.to_f
-        cycle = fraction.to_s.scan(/(\d+)(?:\1)+\d*$/).flatten.first
-        cycle
-      end
-
       def answer!
-        longest_cycle = 0
-        has_longest_cycle = 0
+        longest_cycle_length = 0
+        longest_cycle_denominator = 0
 
         1.upto(999) do |n|
-          fraction = fraction_recurring_cycle(1, n)
-          next if fraction.nil?
-          if fraction.length > longest_cycle
-            longest_cycle = fraction.length
-            has_longest_cycle = n
+          cycle_length = unit_fraction_cycle_length(n)
+          if cycle_length > longest_cycle_length
+            longest_cycle_length = cycle_length
+            longest_cycle_denominator = n
           end
         end
 
-        has_longest_cycle
+        longest_cycle_denominator
+      end
+
+      def unit_fraction_cycle_length(n)
+        found_remainders = Hash.new 0
+
+        value = 1
+        position = 0
+
+        while found_remainders[value] == 0 && value != 0
+          found_remainders[value] = position
+          value *= 10
+          value %= n
+          position += 1
+        end
+
+        return position - found_remainders[value]
       end
     end
   end
