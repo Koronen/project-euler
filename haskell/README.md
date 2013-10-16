@@ -4,4 +4,10 @@
 
 ### Ubuntu
 
-    sudo apt-get install ghc
+    sudo apt-get install ghc libghc-hunit-dev
+
+## Running tests
+
+To run all tests:
+
+    runhaskell -ilib test/*
