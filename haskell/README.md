@@ -10,4 +10,4 @@
 
 To run all tests:
 
-    runhaskell -ilib test/*
+    runhaskell -ilib:test test/All_Tests.hs
