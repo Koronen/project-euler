@@ -2,9 +2,9 @@ module Problem002_Test where
 
 import Test.HUnit
 import Control.Monad (void)
-import Problem002 (answer)
+import Problem002 (problem002)
 
-testAnswer = TestCase $ assertEqual "Answer" 4613732 answer
+testProblem002 = TestCase $ assertEqual "Problem002" 4613732 problem002
 
 main :: IO ()
-main = void $ runTestTT testAnswer
+main = void $ runTestTT testProblem002
