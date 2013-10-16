@@ -10,7 +10,7 @@ module ProjectEuler
       while abundant_numbers.last < UPPER_LIMIT
         # Get next abundant number
         c = abundant_numbers.last + 1
-        c += 1 while ((proper_divisors(c).inject(&:+) || 0) <= c)
+        c += 1 while proper_divisors(c).inject(0, :+) <= c
 
         # Add new sums
         abundant_numbers << c
