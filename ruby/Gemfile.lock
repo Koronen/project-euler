@@ -1,13 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    columnize (0.3.6)
-    debugger (1.6.0)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.1)
+    byebug (3.4.2)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
+    columnize (0.8.9)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.2)
     ffi (1.8.1)
     guard (1.2.3)
       listen (>= 0.4.2)
@@ -31,16 +30,17 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    slop (3.6.0)
     thor (0.18.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  debugger (~> 1.6.0)
-  guard (~> 1.2.0)
-  guard-bundler (~> 1.0.0)
-  guard-minitest (~> 0.5.0)
-  i18n (~> 0.6.0)
-  linguistics (~> 2.0.0)
-  rake (~> 10.0.0)
+  byebug (~> 3.4)
+  guard (~> 1.2)
+  guard-bundler (~> 1.0)
+  guard-minitest (~> 0.5)
+  i18n (~> 0.6)
+  linguistics (~> 2.0)
+  rake (~> 10.0)
