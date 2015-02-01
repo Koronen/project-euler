@@ -22,15 +22,7 @@ module ProjectEuler
         "71636269561882670428252483600823257530420752963450"
 
     def self.answer!
-      answer = 0
-
-      0.upto(N.size - 5) do |pos|
-        numbers = N[pos..(pos+4)].split(//)
-        product = numbers.map(&:to_i).inject(&:*)
-        answer = product if product > answer
-      end
-
-      answer
+      N.chars.map(&:to_i).each_cons(5).map { |c| c.inject(1, :*) }.max
     end
   end
 end
