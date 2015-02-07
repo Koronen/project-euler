@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem018 < ProjectEuler::ProblemBase
     TREE = %q(

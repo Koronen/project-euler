@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem029 < ProjectEuler::ProblemBase
     def self.distinct_sequence_terms(low = 2, high = 100)

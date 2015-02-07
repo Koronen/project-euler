@@ -1,5 +1,3 @@
-require 'project_euler/common_math'
-
-module ProjectEuler
-  DATA_DIR = File.join(File.expand_path(File.dirname(__FILE__)), '..', '..', 'data')
+Dir['lib/project_euler/problem_*'].sort.each do |f|
+  require "project_euler/#{File.basename(f, '.rb')}"
 end

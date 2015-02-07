@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem011 < ProjectEuler::ProblemBase
     GRID = %w(

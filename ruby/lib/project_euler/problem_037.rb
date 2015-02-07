@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 require 'prime'
 require 'set'
 

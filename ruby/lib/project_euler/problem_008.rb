@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem008 < ProjectEuler::ProblemBase
     N = "73167176531330624919225119674426574742355349194934" \

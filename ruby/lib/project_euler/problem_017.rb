@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 require 'linguistics'
 Linguistics.use :en
 

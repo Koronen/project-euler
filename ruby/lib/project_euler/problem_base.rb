@@ -1,11 +1,14 @@
-require 'project_euler'
+require 'project_euler/common_math'
 
 module ProjectEuler
+  DATA_DIR = File.expand_path('../../../data', File.dirname(__FILE__))
+
+  # Common problem superclass.
   class ProblemBase
     extend ProjectEuler::CommonMath
 
     def self.answer!
-      nil
+      fail NotImplementedError, 'answer! not implemented'
     end
 
     def self.answer

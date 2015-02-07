@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem040 < ProjectEuler::ProblemBase
     class << self

@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem023 < ProjectEuler::ProblemBase
     # See: http://mathworld.wolfram.com/AbundantNumber.html

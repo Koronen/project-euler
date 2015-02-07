@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem021 < ProjectEuler::ProblemBase
     @@d = {}

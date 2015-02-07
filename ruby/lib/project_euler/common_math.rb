@@ -5,12 +5,12 @@ module ProjectEuler
     @@factorial = {}
 
     def prime_factors(n)
-      n.prime_division.map{|f, c| [f] * c }.flatten
+      n.prime_division.map { |f, c| [f] * c }.flatten
     end
 
     def proper_divisors(n)
       pf = prime_factors(n) << 1
-      1.upto(pf.count).map{|c| pf.combination(c).map{|f| f.inject(&:*) unless f.empty? } }.flatten.sort.uniq - [n]
+      1.upto(pf.count).flat_map { |c| pf.combination(c).map { |f| f.inject(1, :*) } }.sort.uniq - [n]
     end
 
     def digits(n)
@@ -23,7 +23,7 @@ module ProjectEuler
     end
 
     def factorial(n)
-      @@factorial[n] ||= (n == 0 ? 1 : n.downto(1).inject(:*))
+      @@factorial[n] ||= (n == 0 ? 1 : n.downto(1).inject(1, :*))
     end
   end
 end

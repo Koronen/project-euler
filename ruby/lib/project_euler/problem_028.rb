@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem028 < ProjectEuler::ProblemBase
     def self.diagonal_sum(side_length)

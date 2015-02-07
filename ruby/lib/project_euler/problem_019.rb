@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem019 < ProjectEuler::ProblemBase
     def self.answer!

@@ -1,3 +1,5 @@
+require 'project_euler/problem_base'
+
 module ProjectEuler
   class Problem012 < ProjectEuler::ProblemBase
     # n + (n-1) + ... + 1
