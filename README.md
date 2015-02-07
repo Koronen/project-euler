@@ -4,11 +4,29 @@ These are my solutions to the problems listed on [Project Euler](http://projecte
 Also included, for reference, are the problem specifications, for which I take no credit -- they come
 straight from [projecteuler.net](http://projecteuler.net/).
 
+## Usage
+
+Running all tests
+
+    bundle exec rake
+
+Running all unit tests
+
+    bundle exec rake spec
+
+Running all acceptance tests
+
+    bundle exec rake acceptance
+
+Running a single test
+
+    bundle exec ruby -Ispec spec/project_euler/problem_001_acceptance.rb
+
 ## License
 
 The MIT License
 
-Copyleft (C) 2011-2014 Victor Koronen
+Copyleft (C) 2011-2015 Victor Koronen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
