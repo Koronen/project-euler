@@ -2,10 +2,8 @@ require_relative '../spec_helper'
 
 require 'project_euler/problem_029'
 
-module ProjectEuler
-  describe Problem029 do
-    it 'gives the correct answer' do
-      Problem029.answer.must_equal 9183
-    end
+describe ProjectEuler::Problem029 do
+  it 'gives the correct answer' do
+    ProjectEuler::Problem029.answer.must_equal 9_183
   end
 end

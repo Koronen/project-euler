@@ -2,10 +2,8 @@ require 'spec_helper'
 
 require 'project_euler/problem_<%= number %>'
 
-module ProjectEuler
-  describe Problem<%= number %> do
-    it 'gives the correct answer' do
-      Problem<%= number %>.answer.must_equal 0
-    end
+describe ProjectEuler::Problem<%= number %> do
+  it 'gives the correct answer' do
+    ProjectEuler::Problem<%= number %>.answer.must_equal 0
   end
 end
