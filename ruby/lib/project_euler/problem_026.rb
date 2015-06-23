@@ -1,26 +1,15 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem026 < ProjectEuler::ProblemBase
+  # Solution to problem #026.
+  class Problem026 < ProblemBase
     class << self
       def answer!
-        longest_cycle_length = 0
-        longest_cycle_denominator = 0
-
-        1.upto(999) do |n|
-          cycle_length = unit_fraction_cycle_length(n)
-          if cycle_length > longest_cycle_length
-            longest_cycle_length = cycle_length
-            longest_cycle_denominator = n
-          end
-        end
-
-        longest_cycle_denominator
+        1.upto(999).max_by { |n| unit_fraction_cycle_length(n) }
       end
 
       def unit_fraction_cycle_length(n)
-        found_remainders = Hash.new 0
-
+        found_remainders = Hash.new(0)
         value = 1
         position = 0
 
@@ -31,7 +20,7 @@ module ProjectEuler
           position += 1
         end
 
-        return position - found_remainders[value]
+        position - found_remainders[value]
       end
     end
   end

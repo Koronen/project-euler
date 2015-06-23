@@ -13,23 +13,35 @@ Rake::TestTask.new :acceptance do |t|
   t.test_files = FileList['spec/**/*_acceptance.rb']
 end
 
-desc "Create a stub for a new problem"
-task :new, :number do |t, args|
+desc 'Create a stub for a new problem'
+task :new, :number do |_t, args|
   require 'erb'
 
-  raise ArgumentError if args[:number].nil?
-  number = "%03d" % args[:number]
+  fail ArgumentError, 'no number provided' unless args[:number]
+  number = format('%03d', args[:number])
 
   # TODO: check if exists before overwriting
-  write_template_to_file 'templates/problem.md.erb', binding, "../doc/problem_#{number}.md"
-  write_template_to_file 'templates/problem_acceptance.rb.erb', binding, "spec/project_euler/problem_#{number}_acceptance.rb"
-  write_template_to_file 'templates/problem_spec.rb.erb', binding, "spec/project_euler/problem_#{number}_spec.rb"
-  write_template_to_file 'templates/problem.rb.erb', binding, "lib/project_euler/problem_#{number}.rb"
+  write_template_to_file(
+    'templates/problem.md.erb', binding,
+    "../doc/problem_#{number}.md"
+  )
+  write_template_to_file(
+    'templates/problem_acceptance.rb.erb', binding,
+    "spec/project_euler/problem_#{number}_acceptance.rb"
+  )
+  write_template_to_file(
+    'templates/problem_spec.rb.erb', binding,
+    "spec/project_euler/problem_#{number}_spec.rb"
+  )
+  write_template_to_file(
+    'templates/problem.rb.erb', binding,
+    "lib/project_euler/problem_#{number}.rb"
+  )
 end
 
 def write_template_to_file(template_path, binding, file_path)
-  erb_template = ERB.new File.read(template_path)
+  erb_template = ERB.new(File.read(template_path))
   content = erb_template.result(binding)
-  File.open(file_path, 'w'){ |f| f.write(content) }
+  File.open(file_path, 'w') { |f| f.write(content) }
   puts "Created file #{file_path}"
 end

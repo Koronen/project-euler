@@ -2,12 +2,15 @@ require_relative '../spec_helper'
 
 require 'project_euler/problem_012'
 
-module ProjectEuler
-  describe Problem012 do
-    it 'currectly calculates sum to limit 1' do
-      Problem012.sum_to_1(1).must_equal 1
-      Problem012.sum_to_1(3).must_equal 6
-      Problem012.sum_to_1(10).must_equal 55
+describe ProjectEuler::Problem012 do
+  describe '.triangle_numbers' do
+    it 'is an enumerator' do
+      ProjectEuler::Problem012.triangle_numbers.must_be_kind_of Enumerator
+    end
+
+    it 'yields triangle numbers' do
+      ProjectEuler::Problem012.triangle_numbers.take(5).
+        must_equal [1, 3, 6, 10, 15]
     end
   end
 end

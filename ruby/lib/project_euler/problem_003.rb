@@ -1,9 +1,10 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem003 < ProjectEuler::ProblemBase
+  # Solution to problem #003.
+  class Problem003 < ProblemBase
     def self.answer!
-      n = 600851475143
+      n = 600_851_475_143
 
       Prime.each do |p|
         # if n is prime, it is the largest prime factor

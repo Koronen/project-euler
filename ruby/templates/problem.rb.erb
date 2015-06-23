@@ -1,11 +1,10 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem<%= number %> < ProjectEuler::ProblemBase
-    class << self
-      def answer!
-        0
-      end
+  # Solution to problem #<%= number %>.
+  class Problem<%= number %> < ProblemBase
+    def self.answer!
+      0
     end
   end
 end

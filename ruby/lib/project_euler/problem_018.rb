@@ -1,8 +1,9 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem018 < ProjectEuler::ProblemBase
-    TREE = %q(
+  # Solution to problem #018.
+  class Problem018 < ProblemBase
+    TREE = '
       75
       95 64
       17 47 82
@@ -18,19 +19,19 @@ module ProjectEuler
       91 71 52 38 17 14 91 43 58 50 27 29 48
       63 66 04 68 89 53 67 30 73 16 69 87 40 31
       04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
-    ).split(/\n/).map{|s| s.split.map(&:to_i) }.delete_if{|a| a.empty? }
+    '.lines[1..-2].map { |l| l.split.map(&:to_i) }
 
     def self.answer!
       prev = TREE.first
 
-      TREE[1..-1].each_with_index do |row, j|
+      TREE[1..-1].each do |row|
         row.each_with_index do |e, i|
           if i == 0
             e += prev[i]
           elsif i == prev.size
-            e += prev[i-1]
+            e += prev[i - 1]
           else
-            e = [e+prev[i], e+prev[i-1]].max
+            e = [e + prev[i], e + prev[i - 1]].max
           end
           row[i] = e
         end

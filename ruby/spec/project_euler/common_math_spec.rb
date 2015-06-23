@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 require 'project_euler/common_math'
 
 describe ProjectEuler::CommonMath do
-  class CommonMathDummy
+  class CommonMathDummy # :nodoc:
     extend ProjectEuler::CommonMath
   end
 
@@ -23,14 +23,15 @@ describe ProjectEuler::CommonMath do
     subject.proper_divisors(2).must_equal [1]
     subject.proper_divisors(6).must_equal [1, 2, 3]
     subject.proper_divisors(36).must_equal [1, 2, 3, 4, 6, 9, 12, 18]
-    subject.proper_divisors(220).must_equal [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]
+    subject.proper_divisors(220).
+      must_equal [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]
     subject.proper_divisors(284).must_equal [1, 2, 4, 71, 142]
   end
 
   it 'calculates digits correctly' do
     subject.digits(1).must_equal [1]
-    subject.digits(12).must_equal [1,2]
-    subject.digits(123).must_equal [1,2,3]
+    subject.digits(12).must_equal [1, 2]
+    subject.digits(123).must_equal [1, 2, 3]
   end
 
   it 'calculates factorial correctly' do

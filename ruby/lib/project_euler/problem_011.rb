@@ -1,7 +1,8 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem011 < ProjectEuler::ProblemBase
+  # Solution to problem #011.
+  class Problem011 < ProblemBase
     GRID = %w(
       08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
       49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -23,75 +24,54 @@ module ProjectEuler
       20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
       20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
       01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-    ).each_slice(20).map{|a| a.map(&:to_i) }
+    ).each_slice(20).map { |a| a.map(&:to_i) }
 
-    class << self
-      def answer
-        [horizontal_max, vertical_max, diagonal_max].max
-      end
+    def self.answer
+      new.answer
+    end
+
+    def answer
+      [horizontal_max, vertical_max, diagonal_max].max
+    end
 
     private
 
-      def horizontal_max
-        row_max GRID
-      end
+    def horizontal_max
+      row_max(GRID)
+    end
 
-      def vertical_max
-        row_max GRID.transpose
-      end
+    def vertical_max
+      row_max(GRID.transpose)
+    end
 
-      def row_max(grid)
-        max = 0
+    def row_max(grid)
+      grid.map { |row|
+        row.each_cons(4).map { |cons| cons.inject(1, :*) }.max
+      }.max
+    end
 
-        grid.each do |row|
-          row.each_cons(4) do |cons|
-            product = cons.inject(&:*)
-            max = product if product > max
-          end
-        end
+    def diagonal_max
+      [diagonal_max_ltr, diagonal_max_rtl].max
+    end
 
-        max
-      end
+    def diagonal_max_ltr
+      0.upto(16).map { |row|
+        0.upto(16).map { |col|
+          0.upto(3).map { |offset|
+            GRID[row + offset][col + offset]
+          }.inject(1, :*)
+        }.max
+      }.max
+    end
 
-      def diagonal_max
-        [diagonal_max_ltr, diagonal_max_rtl].max
-      end
-
-      def diagonal_max_ltr
-        max = 0
-
-        0.upto(16) do |row|
-          0.upto(16) do |col|
-            product = 1
-
-            0.upto(3) do |offset|
-              product *= GRID[row+offset][col+offset]
-            end
-
-            max = product if product > max
-          end
-        end
-
-        max
-      end
-
-      def diagonal_max_rtl
-        max = 0
-
-        0.upto(16) do |row|
-          3.upto(19) do |col|
-            product = 1
-
-            0.upto(3) do |offset|
-              product *= GRID[row+offset][col-offset]
-            end
-
-            max = product if product > max
-          end
-        end
-
-        max
-      end
+    def diagonal_max_rtl
+      0.upto(16).map { |row|
+        3.upto(19).map { |col|
+          0.upto(3).map { |offset|
+            GRID[row + offset][col - offset]
+          }.inject(1, :*)
+        }.max
+      }.max
     end
   end
 end

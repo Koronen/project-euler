@@ -1,6 +1,7 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
+  # Solution to problem #036.
   class Problem036 < ProjectEuler::ProblemBase
     class << self
       def binary_palindrome?(n)
@@ -13,7 +14,9 @@ module ProjectEuler
       end
 
       def answer!
-        1.upto(999_999).select{|n| binary_palindrome?(n) && decimal_palindrome?(n) }.inject(&:+)
+        1.upto(999_999).
+          select { |n| binary_palindrome?(n) && decimal_palindrome?(n) }.
+          inject(0, :+)
       end
     end
   end

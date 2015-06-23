@@ -1,7 +1,8 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem019 < ProjectEuler::ProblemBase
+  # Solution to problem #019.
+  class Problem019 < ProblemBase
     def self.answer!
       answer = 0
 

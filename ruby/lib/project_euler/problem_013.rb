@@ -1,7 +1,8 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem013 < ProjectEuler::ProblemBase
+  # Solution to problem #013.
+  class Problem013 < ProblemBase # rubocop:disable Metrics/ClassLength
     N = %w(
       37107287533902102798797998220837590246510135740250
       46376937677490009712648124896970078050417018260538
@@ -106,7 +107,7 @@ module ProjectEuler
     )
 
     def self.answer!
-      N.map(&:to_i).inject(&:+).to_s[0..9].to_i
+      N.map(&:to_i).inject(0, :+).to_s[0..9]
     end
   end
 end

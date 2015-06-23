@@ -1,13 +1,14 @@
 require 'project_euler/problem_base'
 
 module ProjectEuler
-  class Problem023 < ProjectEuler::ProblemBase
+  # Solution to problem #023.
+  class Problem023 < ProblemBase
     # See: http://mathworld.wolfram.com/AbundantNumber.html
-    UPPER_LIMIT = 20161
+    UPPER_LIMIT = 20_161
 
     def self.answer!
       abundant_numbers = [12]
-      abundant_number_sums = {24 => nil}
+      abundant_number_sums = { 24 => nil }
 
       while abundant_numbers.last < UPPER_LIMIT
         # Get next abundant number
@@ -23,7 +24,8 @@ module ProjectEuler
         end
       end
 
-      (1..UPPER_LIMIT).to_a.select{|n| !abundant_number_sums.include?(n) }.inject(&:+)
+      (1..UPPER_LIMIT).select { |n| !abundant_number_sums.include?(n) }.
+        inject(0, :+)
     end
   end
 end
